@@ -7,6 +7,7 @@
   </div>
   <div class="second_block" id="second_block">
     <h3>Second</h3>
+    <router-link to="/about">About</router-link>
   </div>
 </template>
 
