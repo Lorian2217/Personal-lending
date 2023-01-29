@@ -11,13 +11,14 @@
 </template>
 
 <script>
+
 export default{
   name: 'main_page',
   data(){
     return{}
   },
   methods:{
-  }
+  },
 }
 </script>
 
