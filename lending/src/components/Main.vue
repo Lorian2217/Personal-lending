@@ -3,11 +3,12 @@
     <!-- <h3>First</h3> -->
     <p class="textflow">JustSmile</p>
     <p class="copyright" id="copyright">All rights reserved by L.R.N. in 2023 years ©</p>
-    <p class="navigation_first"> &#65088; </p>
+    <p id="first_quote"> ︾ </p>
   </div>
   <div class="second_block" id="second_block">
     <h3>Second</h3>
     <router-link to="/about">About</router-link>
+    <h3> {{ this.val }}</h3>
   </div>
 </template>
 
@@ -16,9 +17,21 @@
 export default{
   name: 'main_page',
   data(){
-    return{}
+    return{
+      val: 'Good Day!'
+     }
+  },
+  setup(){
+    console.log('Setup');
   },
   methods:{
+  },
+  mounted(){
+    function example() {
+      document.getElementById('first_quote').style.opacity='1';
+      console.log('Mounted');
+    }
+    setTimeout(example, 800);
   },
 }
 </script>
@@ -31,7 +44,6 @@ export default{
   user-select: none;
   background: black;
 }
-
 .textflow{
   position: absolute;
   width: inherit;
@@ -50,7 +62,6 @@ export default{
   from {background-position: 200% center}
   to {background-position: 0% center}
 }
-
 .copyright{
   color: #c0c0c0;
   position: absolute;
@@ -59,17 +70,23 @@ export default{
   transform: translateY(-99%);
   margin: auto;
 }
-
-.navigation_first{
+#first_quote{
   /* display: none; */
-  font-size: 5em;
-  height: 10%;
+  font-size: 6em;
+  height: 12%;
   color: white;
   position: absolute;
-  width: inherit;
+   border: none;
+   opacity: 0;
   top: 65%;
+  left: 46%;
+  right: 46%;
   transform: translateY(-65%);
-  margin: auto;
+  transition: all 0.5s;
+}
+#first_quote:hover{
+  transform: translateY(-50%);
+  transition: all 0.5s;
 }
 
 .second_block{
