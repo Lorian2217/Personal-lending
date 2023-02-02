@@ -1,38 +1,49 @@
 <template>
   <div class="first_block">
-    <!-- <h3>First</h3> -->
     <p class="textflow">JustSmile</p>
     <p class="copyright" id="copyright">All rights reserved by L.R.N. in 2023 years ©</p>
-    <p id="first_quote"> ︾ </p>
+    <div id="first_quote"> <a href="#second_block">︾</a>  </div>
   </div>
-  <div class="second_block" id="second_block">
-    <h3>Second</h3>
-    <router-link to="/about">About</router-link>
-    <h3> {{ this.val }}</h3>
+  <div class="d-flex justify-content-around flex-row p-5 second_block" id="second_block">
+    <img src="../assets/ZKnFZb4Wlgk.jpg" class="h-25 w-25 rounded img-fluid" alt="avatar">
+    <div class="h-50 w-50 p-2 border border-secondary rounded upper_part">
+      <p>Меня зовут Данила Мохнаткин, мне 20 лет, я выпускник гуманитарного колледжа имени святителя Алексия,
+      выпустился в 2022 году, со специальностью техник-программист, на текущий момент совершенствуюсь как
+      web-разработчик, владею такими языками программирования как Vue.js, PHP, Laravel, MySQL, Html, Css, а также
+      имею опыт работы с приложениями: OpenServer, Postman, GitHub, GitHub Desktop, phpMyAdmin, SublimeText,
+      Visual Studio Code. <br>
+      Уверенный пользователь ПК, умею работать с большей частью приложений Microsoft Office и Libre Office,
+      на сегодняшний день обучаюсь в Поволжской православной академии, продолжая развиваться как разработчик.</p>
+    </div>
+    <!-- <button class="btn btn-primary" type="submit">Button</button> -->
+    <!-- <a class="btn btn-primary" href="#" role="button">Link</a> -->
+    <!-- <router-link to="/about">About</router-link> -->
   </div>
 </template>
 
 <script>
+import { onMounted } from 'vue'
 
 export default{
   name: 'main_page',
   data(){
     return{
-      val: 'Good Day!'
      }
   },
   setup(){
-    console.log('Setup');
+    onMounted(() =>{
+      console.log('mounted');
+      function fadeOut() {
+        document.getElementById('first_quote').style.opacity='1';
+        console.log('Mounted');
+      }
+      setTimeout(fadeOut, 800);
+    })
   },
   methods:{
   },
-  mounted(){
-    function example() {
-      document.getElementById('first_quote').style.opacity='1';
-      console.log('Mounted');
-    }
-    setTimeout(example, 800);
-  },
+  components:{
+  }
 }
 </script>
 
@@ -71,7 +82,6 @@ export default{
   margin: auto;
 }
 #first_quote{
-  /* display: none; */
   font-size: 6em;
   height: 12%;
   color: white;
@@ -85,18 +95,27 @@ export default{
   transition: all 0.5s;
 }
 #first_quote:hover{
-  transform: translateY(-50%);
+  transform: translateY(-40%);
+  transition: all 0.5s;
+}
+/* Второй блок информации */
+#second_block{
+  min-height: 100vh;
+  width: 100%;
+  user-select: none;
+  background: #f2f3f4;
+}
+.upper_part{
+  transition: all 0.5s;
+}
+.upper_part:hover{
+  transform: translateY(5%);
   transition: all 0.5s;
 }
 
-.second_block{
-  min-height: 100vh;
+.first_block, #second_block, h3, p, a{
+  text-decoration: none;
+  color: inherit;
   scroll-behavior: smooth;
-  background-color: blue;
-  /* border: solid black; */
-}
-
-.first_block, .second_block, h3, p{
-  margin: inherit;
 }
 </style>
