@@ -2,7 +2,7 @@
   <div class="first_block">
     <p class="textflow">JustSmile</p>
     <p class="copyright" id="copyright">All rights reserved by L.R.N. in 2023 years ©</p>
-    <div id="first_quote"> <a href="#second_block">︾</a>  </div>
+    <div id="first_quote"> <a @submit.prevent href="#second_block">︾</a>  </div>
   </div>
   <div class="d-flex justify-content-around flex-row p-5 second_block" id="second_block">
     <img src="../assets/ZKnFZb4Wlgk.jpg" class="h-25 w-25 rounded img-fluid" alt="avatar">
@@ -15,9 +15,6 @@
       Уверенный пользователь ПК, умею работать с большей частью приложений Microsoft Office и Libre Office,
       на сегодняшний день обучаюсь в Поволжской православной академии, продолжая развиваться как разработчик.</p>
     </div>
-    <!-- <button class="btn btn-primary" type="submit">Button</button> -->
-    <!-- <a class="btn btn-primary" href="#" role="button">Link</a> -->
-    <!-- <router-link to="/about">About</router-link> -->
   </div>
 </template>
 
@@ -111,6 +108,9 @@ export default{
 .upper_part:hover{
   transform: translateY(5%);
   transition: all 0.5s;
+}
+.upper_part:valid{
+  transform: rotate(45deg);
 }
 
 .first_block, #second_block, h3, p, a{
